@@ -1,0 +1,13 @@
+<a href="{% url 'blog:post_new' %}">Create new post</a>
+
+
+<ul>
+  {% for category, posts in post_list %}
+  <h3>{{ category }}</h3>
+    {% for post in posts %}
+      <li>
+        <a href="{% url 'blog:detail' post.id %}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  {% endfor %}
+</ul>
